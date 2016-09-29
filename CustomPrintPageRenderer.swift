@@ -23,5 +23,36 @@ class CustomPrintPageRenderer: UIPrintPageRenderer {
         
         // Set the horizontal and vertical insets (that's optional).
         self.setValue(NSValue(CGRect: pageFrame), forKey: "printableRect")
+        
+//        self.setValue(NSValue(CGRect: CGRectInset(pageFrame, 10.0, 10.0)), forKey: "printableRect")
     }
+    
+    func exportHTMLContentToPDF(HTMLContent: String) {
+        let printPageRenderer = CustomPrintPageRenderer()
+        
+        let printFormatter = UIMarkupTextPrintFormatter(markupText: HTMLContent)
+        printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAtIndex: 0)
+        
+        let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer)
+        
+        pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/Invoice\(invoiceNumber).pdf"
+        pdfData.writeToFile(pdfFilename, atomically: true)
+        
+        print(pdfFilename)
+    }
+    
+    func drawPDFUsingPrintPageRenderer(printPageRenderer: UIPrintPageRenderer) -&gt; NSData! {
+    let data = NSMutableData()
+    
+    UIGraphicsBeginPDFContextToData(data, CGRectZero, nil)
+    
+    UIGraphicsBeginPDFPage()
+    
+    printPageRenderer.drawPageAtIndex(0, inRect: UIGraphicsGetPDFContextBounds())
+    
+    UIGraphicsEndPDFContext()
+    
+    return data
+    }
+
 }
