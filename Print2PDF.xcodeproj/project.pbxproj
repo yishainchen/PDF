@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		222B0A1B1D9BCC9C00AB063F /* InvoiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B0A1A1D9BCC9C00AB063F /* InvoiceComposer.swift */; };
+		700CC1BE1D9CBF5B00CCB83B /* CustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700CC1BD1D9CBF5B00CCB83B /* CustomPrintPageRenderer.swift */; };
 		C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922201D0FFDE5000D4607 /* AppDelegate.swift */; };
 		C0C922261D0FFDE5000D4607 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C922241D0FFDE5000D4607 /* Main.storyboard */; };
 		C0C922281D0FFDE6000D4607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C922271D0FFDE6000D4607 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		222B0A1A1D9BCC9C00AB063F /* InvoiceComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceComposer.swift; sourceTree = "<group>"; };
+		700CC1BD1D9CBF5B00CCB83B /* CustomPrintPageRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPrintPageRenderer.swift; sourceTree = "<group>"; };
 		C0C9221D1D0FFDE5000D4607 /* Print2PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Print2PDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C922201D0FFDE5000D4607 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C922251D0FFDE5000D4607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				222B0A1A1D9BCC9C00AB063F /* InvoiceComposer.swift */,
+				700CC1BD1D9CBF5B00CCB83B /* CustomPrintPageRenderer.swift */,
 				C0C922381D105847000D4607 /* HTML Templates */,
 				C0C9221F1D0FFDE5000D4607 /* Print2PDF */,
 				C0C9221E1D0FFDE5000D4607 /* Products */,
@@ -170,6 +173,7 @@
 			files = (
 				C0C922371D1002C4000D4607 /* AddItemViewController.swift in Sources */,
 				C0C922351D0FFE67000D4607 /* CreatorViewController.swift in Sources */,
+				700CC1BE1D9CBF5B00CCB83B /* CustomPrintPageRenderer.swift in Sources */,
 				C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */,
 				C0C922401D105886000D4607 /* PreviewViewController.swift in Sources */,
 				C0C922331D0FFE1B000D4607 /* InvoiceListViewController.swift in Sources */,

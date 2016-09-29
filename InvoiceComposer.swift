@@ -65,6 +65,38 @@ class InvoiceComposer: NSObject {
             // Total amount.
             HTMLContent = HTMLContent.stringByReplacingOccurrencesOfString("#TOTAL_AMOUNT#", withString: totalAmount)
             
+            // The invoice items will be added by using a loop.
+            var allItems = ""
+            
+            // For all the items except for the last one we'll use the "single_item.html" template.
+            // For the last one we'll use the "last_item.html" template.
+            for i in 0..&lt;items.count {
+                var itemHTMLContent: String!
+                
+                // Determine the proper template file.
+                if i != items.count - 1 {
+                    itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
+                }
+                else {
+                    itemHTMLContent = try String(contentsOfFile: pathToLastItemHTMLTemplate!)
+                }
+                
+                // Replace the description and price placeholders with the actual values.
+                itemHTMLContent = itemHTMLContent.stringByReplacingOccurrencesOfString("#ITEM_DESC#", withString: items[i]["item"]!)
+                
+                // Format each item's price as a currency value.
+                let formattedPrice = AppDelegate.getAppDelegate().getStringValueFormattedAsCurrency(items[i]["price"]!)
+                itemHTMLContent = itemHTMLContent.stringByReplacingOccurrencesOfString("#PRICE#", withString: formattedPrice)
+                
+                // Add the item's HTML code to the general items string.
+                allItems += itemHTMLContent
+            }
+            
+            // Set the items.
+            HTMLContent = HTMLContent.stringByReplacingOccurrencesOfString("#ITEMS#", withString: allItems)
+            
+            // The HTML code is ready.
+            return HTMLContent
         }
         catch {
             print("Unable to open and use HTML template files.")
